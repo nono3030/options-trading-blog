@@ -1,5 +1,11 @@
 {
-  "posts": {},
+  "posts": {
+    "trading-options-debutant": {
+      "keyword": "trading options débutant",
+      "source": "backlog",
+      "date": "2026-10-18"
+    }
+  },
   "refreshes": [],
   "learnings": []
 }
