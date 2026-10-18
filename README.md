@@ -76,4 +76,13 @@ python -m http.server -d dist 8000
 ## Points de vigilance
 - **Qualité avant volume.** Google pénalise le contenu produit en masse sans valeur ajoutée (*scaled content abuse*), et la finance est un sujet YMYL. Le pipeline est réglé sur 1 article par jour, avec recherche web, sources et validation. Relisez régulièrement les articles, surtout ceux qui parlent de fiscalité.
 - **Coût API** : environ 1 article plus 1 réécriture par jour avec recherche web. Suivez votre consommation dans la console Anthropic.
-- **Domaine personnalisé** : recommandé pour le SEO à long terme. Ajoutez-le dans *Settings → Pages*, puis mettez à jour `SITE_URL` et `GSC_PROPERTY`.
+- **Domaine personnalisé** : voir ci-dessous.
+
+## Domaine personnalisé
+1. Chez votre registrar, créez les enregistrements DNS :
+   - domaine nu (`mondomaine.fr`) : 4 enregistrements **A** vers `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153` (et les **AAAA** `2606:50c0:8000::153`, `2606:50c0:8001::153`, `2606:50c0:8002::153`, `2606:50c0:8003::153`) ;
+   - `www` : un **CNAME** vers `nono3030.github.io`.
+2. Recommandé : sur GitHub, *Settings du compte → Pages → Add a domain* pour **vérifier** le domaine (protection contre le détournement).
+3. Dans le dépôt, *Settings → Pages → Custom domain* : saisissez `mondomaine.fr`, attendez la validation DNS, puis cochez **Enforce HTTPS**.
+4. Variable `SITE_URL` = `https://mondomaine.fr` (le build génère alors le fichier `CNAME`, les URL canoniques, le sitemap et les liens sans le préfixe `/options-trading-blog`).
+5. Search Console : utilisez une propriété **Domaine** (`GSC_PROPERTY` = `sc-domain:mondomaine.fr`), vérifiée par un enregistrement DNS TXT ; plus besoin de `GSC_VERIFICATION`. Dans GA4, mettez à jour l'URL du flux Web.

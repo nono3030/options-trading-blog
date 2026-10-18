@@ -174,6 +174,9 @@ def main() -> None:
 
     write("robots.txt", f"User-agent: *\nAllow: /\n\nSitemap: {site['url']}/sitemap.xml\n")
     write(".nojekyll", "")
+    host = urlparse(site["url"]).hostname or ""
+    if host and not host.endswith("github.io"):
+        write("CNAME", host + "\n")  # custom domain for GitHub Pages
     print(f"Built {len(posts)} posts, {len(pages)} pages, {len(tags)} tags -> dist/")
 
 
