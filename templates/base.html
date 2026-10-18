@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="{{ site.lang }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ title }}</title>
+<meta name="description" content="{{ description }}">
+<link rel="canonical" href="{{ canonical }}">
+{% if noindex %}<meta name="robots" content="noindex">{% endif %}
+{% if site.gsc_verification %}<meta name="google-site-verification" content="{{ site.gsc_verification }}">{% endif %}
+<meta property="og:type" content="{{ og_type or 'website' }}">
+<meta property="og:title" content="{{ title }}">
+<meta property="og:description" content="{{ description }}">
+<meta property="og:url" content="{{ canonical }}">
+<meta property="og:site_name" content="{{ site.title }}">
+<meta property="og:locale" content="{{ site.locale }}">
+<meta name="twitter:card" content="summary">
+<link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ site.base_path }}/feed.xml">
+<link rel="stylesheet" href="{{ site.base_path }}/static/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📈</text></svg>">
+{% if json_ld %}<script type="application/ld+json">{{ json_ld | safe }}</script>{% endif %}
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="{{ site.base_path }}/">{{ site.title }}</a>
+    <nav><a href="{{ site.base_path }}/">Articles</a><a href="{{ site.base_path }}/a-propos/">À propos</a></nav>
+  </div>
+</header>
+<main class="wrap">
+{% block content %}{% endblock %}
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="disclaimer">Les contenus de ce site sont fournis à titre éducatif et ne constituent pas un conseil en investissement. Le trading d'options comporte un risque élevé de perte en capital. <a href="{{ site.base_path }}/avertissement/">Avertissement complet</a>.</p>
+    <p>© {{ year }} {{ site.title }} · <a href="{{ site.base_path }}/feed.xml">RSS</a> · <a href="{{ site.base_path }}/mentions-legales/">Mentions légales</a></p>
+  </div>
+</footer>
+</body>
+</html>

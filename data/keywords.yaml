@@ -1,0 +1,40 @@
+# Backlog de mots-clés de démarrage (avant que Search Console ait des données).
+# Le pipeline consomme cette liste, puis l'enrichit automatiquement
+# avec les requêtes réelles de Search Console et des idées générées par Claude.
+backlog:
+  - trading options débutant
+  - qu'est-ce qu'une option call
+  - option put explication simple
+  - grecques des options delta gamma theta vega
+  - covered call stratégie
+  - cash secured put
+  - wheel strategy options
+  - iron condor explication
+  - straddle et strangle différence
+  - volatilité implicite options
+  - iv rank iv percentile
+  - options 0dte spx
+  - put credit spread
+  - call debit spread
+  - calendar spread options
+  - butterfly options stratégie
+  - assignation option américaine
+  - options spx vs spy différences
+  - fiscalité options france flat tax
+  - déclarer gains options interactive brokers impots
+  - meilleur courtier options france
+  - modèle black scholes expliqué
+  - theta decay options
+  - gestion du risque trading options
+  - taille de position trading options
+  - vix et volatilité marché
+  - options européennes vs américaines
+  - levier options vs actions
+  - poor man's covered call
+  - jade lizard stratégie
+  - roll d'une option
+  - exercice anticipé option
+  - prime d'une option calcul
+  - options sur indices cac 40
+  - erreurs débutant options
+done: []

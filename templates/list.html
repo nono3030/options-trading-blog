@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+{% if heading %}
+<h1>{{ heading }}</h1>
+{% else %}
+<section class="hero">
+  <h1>{{ site.title }}</h1>
+  <p>{{ site.description }}</p>
+  {% if top_tags %}<p class="tags">{% for t in top_tags %}<a href="{{ site.base_path }}/tag/{{ tag_slugs[t] }}/">#{{ t }}</a>{% endfor %}</p>{% endif %}
+</section>
+{% endif %}
+<ul class="post-list">
+{% for p in posts %}
+  <li>
+    <a href="{{ p.href }}"><h2>{{ p.title }}</h2></a>
+    <p>{{ p.description }}</p>
+    <span class="meta"><time datetime="{{ p.date }}">{{ p.date }}</time> · {{ p.reading_time }} min</span>
+  </li>
+{% else %}
+  <li>Premiers articles très bientôt.</li>
+{% endfor %}
+</ul>
+{% endblock %}

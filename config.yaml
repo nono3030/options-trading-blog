@@ -1,0 +1,28 @@
+site:
+  title: "Options & Volatilité"
+  tagline: "Comprendre et trader les options, sans jargon inutile"
+  description: "Guides pratiques en français sur le trading d'options : stratégies, grecques, volatilité, fiscalité et gestion du risque."
+  # Remplacé par la variable SITE_URL du dépôt si elle est définie
+  url: "https://nono3030.github.io/options-trading-blog"
+  lang: "fr"
+  locale: "fr_FR"
+  author: "Arnaud Lavesque"
+  author_bio: "Trader d'options particulier depuis plusieurs années (SPX, SPY, QQQ), spécialisé dans la vente de prime et les stratégies à risque défini."
+
+seo:
+  # Nombre d'articles nouveaux par exécution quotidienne
+  new_posts_per_run: 1
+  # Nombre d'articles existants à améliorer par exécution
+  refreshes_per_run: 1
+  # Délai minimum entre deux réécritures d'un même article
+  refresh_cooldown_days: 30
+  # Seuils pour qu'une requête GSC devienne une cible
+  min_impressions_new: 30
+  min_impressions_refresh: 50
+  # Fenêtre d'analyse Search Console
+  gsc_days: 28
+
+llm:
+  model: "claude-opus-5-5"
+  effort: "high"
+  max_web_searches: 8

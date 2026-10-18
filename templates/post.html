@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+<article class="post">
+  <nav class="crumbs"><a href="{{ site.base_path }}/">Accueil</a> › {{ post.title }}</nav>
+  <h1>{{ post.title }}</h1>
+  <p class="meta">
+    Par <a href="{{ site.base_path }}/a-propos/">{{ site.author }}</a> ·
+    <time datetime="{{ post.date }}">{{ post.date }}</time>
+    {% if post.updated != post.date %} · mis à jour le <time datetime="{{ post.updated }}">{{ post.updated }}</time>{% endif %}
+    · {{ post.reading_time }} min de lecture
+  </p>
+  {% if post.toc and post.toc.count('<li>') > 2 %}
+  <details class="toc" open><summary>Sommaire</summary>{{ post.toc | safe }}</details>
+  {% endif %}
+  <div class="content">{{ post.html | safe }}</div>
+
+  {% if post.faq %}
+  <section class="faq">
+    <h2>Questions fréquentes</h2>
+    {% for f in post.faq %}
+    <details><summary>{{ f.q }}</summary><p>{{ f.a }}</p></details>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  {% if post.tags %}
+  <p class="tags">{% for t in post.tags %}<a href="{{ site.base_path }}/tag/{{ tag_slugs[t] }}/">#{{ t }}</a>{% endfor %}</p>
+  {% endif %}
+
+  <aside class="author-box">
+    <strong>{{ site.author }}</strong>
+    <p>{{ site.author_bio }}</p>
+  </aside>
+
+  {% if related %}
+  <section class="related">
+    <h2>À lire aussi</h2>
+    <ul>{% for r in related %}<li><a href="{{ r.href }}">{{ r.title }}</a></li>{% endfor %}</ul>
+  </section>
+  {% endif %}
+</article>
+{% endblock %}
