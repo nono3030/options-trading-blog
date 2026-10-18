@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% block body_attrs %} data-slug="{{ post.slug }}" data-keyword="{{ post.keyword }}" data-tags="{{ post.tags | join(',') }}" data-published="{{ post.date }}" data-words="{{ post.words }}"{% endblock %}
 {% block content %}
 <article class="post">
   <nav class="crumbs"><a href="{{ site.base_path }}/">Accueil</a> › {{ post.title }}</nav>

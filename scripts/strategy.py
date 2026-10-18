@@ -12,7 +12,7 @@ import datetime as dt
 import os
 from collections import defaultdict
 
-from lib import (GSC_DIR, PLAN_FILE, ask_claude, extract_json, load_config, load_json,
+from lib import (DATA_DIR, GSC_DIR, PLAN_FILE, ask_claude, extract_json, load_config, load_json,
                  load_keywords, load_posts, load_state, normalize_query, save_json,
                  save_keywords, save_state, similarity)
 
@@ -97,6 +97,12 @@ def main() -> None:
     state = load_state()
     keywords = load_keywords()
     gsc = load_json(GSC_DIR / "latest.json", {"query_page": [], "pages": []})
+    ga4 = load_json(DATA_DIR / "ga4" / "latest.json", {"pages": []})
+    engagement = {
+        p["slug"]: {k: p.get(k, 0) for k in ("screenPageViews", "avgEngagedSeconds", "readRate",
+                                              "bounceRate", "internal_link_click")}
+        for p in ga4["pages"] if p.get("slug") in by_slug
+    }
 
     measure_refreshes(state, site_url)
 
@@ -158,6 +164,23 @@ def main() -> None:
                         for r in top],
             "score": page["impressions"] * (ctr_gap + (0.05 if striking else 0)),
         })
+    # Pages that get visitors but don't hold them (GA4): rewrite for engagement.
+    queued = {r["slug"] for r in refresh}
+    for slug, eng in engagement.items():
+        post = by_slug[slug]
+        if slug in queued or slug in recently or post["date"] > cooldown:
+            continue
+        if eng["screenPageViews"] >= 30 and (eng["avgEngagedSeconds"] < 40 or eng["readRate"] < 0.15):
+            top = sorted(page_queries[slug], key=lambda r: r["impressions"], reverse=True)[:20]
+            refresh.append({
+                "slug": slug,
+                "metrics": {},
+                "queries": [{k: r[k] for k in ("query", "clicks", "impressions", "ctr", "position")}
+                            for r in top],
+                "score": eng["screenPageViews"] * 0.05,
+            })
+    for r in refresh:
+        r["engagement"] = engagement.get(r["slug"], {})
     refresh.sort(key=lambda x: x["score"], reverse=True)
 
     # Push promising GSC queries into the backlog so they are never lost.

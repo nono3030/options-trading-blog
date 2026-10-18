@@ -24,7 +24,14 @@ Performances de la page : {json.dumps(item['metrics'], ensure_ascii=False)}
 Requêtes pour lesquelles la page apparaît (ctr = taux de clic, position = position moyenne) :
 {queries}
 
-Objectif : augmenter les clics organiques.
+Comportement des lecteurs sur la page (Google Analytics, lecteurs ayant accepté les cookies) : \
+{json.dumps(item.get('engagement', {}), ensure_ascii=False)}
+(avgEngagedSeconds = temps de lecture active moyen ; readRate = part des vues lues à plus de 75 % ; \
+internal_link_click = clics vers d'autres articles.)
+
+Objectif : augmenter les clics organiques ET la lecture effective. Si le temps de lecture ou le \
+taux de lecture est faible, rends l'introduction plus directe, la structure plus scannable et le \
+contenu plus concret.
 1. Réécris title et description pour améliorer le CTR sur les requêtes à fortes impressions \
 (sans clickbait trompeur).
 2. Couvre explicitement les requêtes à fortes impressions mais mal positionnées : ajoute ou \
@@ -76,7 +83,7 @@ Article actuel :
     state["refreshes"].append({
         "slug": post["slug"],
         "date": today(),
-        "before": item["metrics"],
+        "before": {**item["metrics"], **{f"ga4_{k}": v for k, v in item.get("engagement", {}).items()}},
         "old_title": post["title"],
         "new_title": meta["title"],
         "changes": changes,

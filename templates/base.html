@@ -20,7 +20,7 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📈</text></svg>">
 {% if json_ld %}<script type="application/ld+json">{{ json_ld | safe }}</script>{% endif %}
 </head>
-<body>
+<body{% block body_attrs %}{% endblock %}>
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="{{ site.base_path }}/">{{ site.title }}</a>
@@ -33,8 +33,19 @@
 <footer class="site-footer">
   <div class="wrap">
     <p class="disclaimer">Les contenus de ce site sont fournis à titre éducatif et ne constituent pas un conseil en investissement. Le trading d'options comporte un risque élevé de perte en capital. <a href="{{ site.base_path }}/avertissement/">Avertissement complet</a>.</p>
-    <p>© {{ year }} {{ site.title }} · <a href="{{ site.base_path }}/feed.xml">RSS</a> · <a href="{{ site.base_path }}/mentions-legales/">Mentions légales</a></p>
+    <p>© {{ year }} {{ site.title }} · <a href="{{ site.base_path }}/feed.xml">RSS</a> · <a href="{{ site.base_path }}/mentions-legales/">Mentions légales</a> · <a href="{{ site.base_path }}/confidentialite/">Confidentialité</a>{% if site.analytics_enabled %} · <a href="#" data-consent-open>Gérer les cookies</a>{% endif %}</p>
   </div>
 </footer>
+{% if site.analytics_enabled %}
+<div id="consent" class="consent" role="dialog" aria-label="Consentement aux cookies" hidden>
+  <p>Avec votre accord, nous utilisons des cookies de mesure d'audience (Google Analytics) et d'analyse de navigation (Microsoft Clarity : cartes de chaleur et enregistrement anonymisé des sessions) pour comprendre quels contenus sont utiles et les améliorer. Aucun cookie publicitaire. <a href="{{ site.base_path }}/confidentialite/">En savoir plus</a></p>
+  <div class="consent-actions">
+    <button type="button" data-refuse>Refuser</button>
+    <button type="button" data-accept>Accepter</button>
+  </div>
+</div>
+<script>window.SITE_ANALYTICS = {{ site.analytics | tojson }};</script>
+<script src="{{ site.base_path }}/static/analytics.js" defer></script>
+{% endif %}
 </body>
 </html>

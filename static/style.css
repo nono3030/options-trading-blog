@@ -44,3 +44,10 @@ blockquote { margin: 1.2em 0; padding: 4px 16px; border-left: 4px solid var(--ac
 .related ul { padding-left: 20px; }
 .site-footer { margin-top: 60px; border-top: 1px solid var(--border); color: var(--muted); font-size: .85rem; padding: 20px 0 40px; }
 @media (max-width: 600px) { body { font-size: 17px; } .post h1 { font-size: 1.7rem; } }
+.consent { position: fixed; left: 16px; right: 16px; bottom: 16px; max-width: 640px; margin: 0 auto; z-index: 10;
+  background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 14px 18px;
+  box-shadow: 0 6px 24px rgba(0,0,0,.15); font-size: .9rem; }
+.consent p { margin: 0 0 10px; }
+.consent-actions { display: flex; gap: 10px; justify-content: flex-end; }
+.consent button { font: inherit; padding: 8px 18px; border-radius: 6px; cursor: pointer;
+  border: 1px solid var(--accent); background: var(--accent); color: #fff; }

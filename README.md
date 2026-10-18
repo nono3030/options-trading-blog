@@ -39,6 +39,30 @@ Tant que la GSC n'est pas configurée ou n'a pas encore de données (comptez 2 �
 ### 4. Lancer
 *Actions → SEO autopilot & deploy → Run workflow*. Ensuite, il tourne seul tous les jours à 05:17 UTC.
 
+## Tracking des visiteurs
+
+Tout le suivi est **soumis au consentement** (RGPD / CNIL) : rien n'est chargé avant le clic sur « Accepter », le bouton « Refuser » est aussi visible que « Accepter », le choix est redemandé tous les 6 mois, et un lien « Gérer les cookies » permet de changer d'avis (les cookies sont alors effacés). Sans identifiant configuré, aucun bandeau ni script n'est ajouté.
+
+| Outil | Ce qu'on apprend |
+|---|---|
+| **Google Analytics 4** | utilisateurs, nouveaux / récurrents, pays, ville, appareil, navigateur, canaux et sources de trafic, pages d'entrée, temps engagé |
+| **Événements sur mesure** (`static/analytics.js`) | profondeur de défilement (25/50/75/100 %), temps de lecture *actif*, article réellement lu (`article_read`), clics sur les liens internes avec leur zone (sommaire, corps, articles liés…), clics sortants, questions de la FAQ ouvertes, texte copié ; chaque événement porte l'article et son mot-clé |
+| **Microsoft Clarity** | cartes de chaleur, cartes de défilement, relecture des sessions, détection des clics de frustration |
+| **Search Console** | requêtes Google, impressions, positions, CTR |
+
+**Rapport** : chaque jour, `data/reports/latest.md` (audience, acquisition, requêtes, contenus les plus lus, contenus qui retiennent mal, questions FAQ populaires) est mis à jour dans le dépôt.
+
+**Boucle d'amélioration** : les articles qui ont du trafic mais un faible temps de lecture ou un faible taux de lecture sont automatiquement mis en file de réécriture, et Claude reçoit ces métriques pour corriger l'article.
+
+### Configuration
+1. Créez une propriété **GA4** ([analytics.google.com](https://analytics.google.com)) avec un flux Web pour l'URL du site. Désactivez « Signaux Google » et le partage de données publicitaires.
+   - Variable `GA4_MEASUREMENT_ID` : l'ID du flux (`G-XXXXXXX`).
+   - Variable `GA4_PROPERTY_ID` : l'ID numérique de la propriété (*Admin → Détails de la propriété*).
+   - Dans *Admin → Gestion des accès à la propriété*, ajoutez l'e-mail du compte de service (le même que pour Search Console) avec le rôle **Éditeur**, puis activez l'**API Google Analytics Data** et l'**API Google Analytics Admin** dans Google Cloud.
+   - Lancez une fois le workflow **GA4 setup** : il crée les dimensions personnalisées (article, mot-clé, question FAQ, zone de lien…).
+   - Dans *Admin → Conservation des données*, réglez la durée sur 14 mois.
+2. Créez un projet **Microsoft Clarity** ([clarity.microsoft.com](https://clarity.microsoft.com)) et renseignez la variable `CLARITY_PROJECT_ID`. Dans ses paramètres, activez « Cookies » et laissez le masquage sur « Équilibré » ou « Strict ».
+
 ## Réglages
 `config.yaml` : nombre d'articles et de réécritures par jour, seuils d'impressions, délai entre deux réécritures, modèle et niveau d'effort.
 

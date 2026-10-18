@@ -26,6 +26,11 @@ def load_config() -> dict:
         cfg["site"]["url"] = os.environ["SITE_URL"]
     cfg["site"]["url"] = cfg["site"]["url"].rstrip("/")
     cfg["site"]["gsc_verification"] = os.environ.get("GSC_VERIFICATION", "")
+    cfg["site"]["analytics"] = {
+        "ga4": os.environ.get("GA4_MEASUREMENT_ID", ""),
+        "clarity": os.environ.get("CLARITY_PROJECT_ID", ""),
+    }
+    cfg["site"]["analytics_enabled"] = any(cfg["site"]["analytics"].values())
     return cfg
 
 

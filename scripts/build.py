@@ -108,7 +108,8 @@ def main() -> None:
         p["toc"] = toc
         p["url"] = f"{site['url']}/{p['slug']}/"
         p["href"] = f"{base_path}/{p['slug']}/"
-        p["reading_time"] = max(1, math.ceil(len(re.findall(r"\w+", p["body"])) / 220))
+        p["words"] = len(re.findall(r"\w+", p["body"]))
+        p["reading_time"] = max(1, math.ceil(p["words"] / 220))
         for t in p.get("tags", []):
             tags[t].append(p)
 
