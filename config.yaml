@@ -19,6 +19,8 @@ seo:
   # Seuils pour qu'une requête GSC devienne une cible
   min_impressions_new: 30
   min_impressions_refresh: 50
+  # Propriété Search Console (remplaçable par la variable GSC_PROPERTY)
+  gsc_property: "sc-domain:cahier-des-investisseurs.com"
   # Fenêtre d'analyse Search Console
   gsc_days: 28
 

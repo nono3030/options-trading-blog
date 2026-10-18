@@ -47,11 +47,11 @@ def query(svc, prop: str, start: str, end: str, dimensions: list[str]) -> list[d
 
 
 def main() -> None:
-    if not os.environ.get("GSC_SERVICE_ACCOUNT_JSON") or not os.environ.get("GSC_PROPERTY"):
+    cfg = load_config()
+    prop = os.environ.get("GSC_PROPERTY") or cfg["seo"].get("gsc_property")
+    if not os.environ.get("GSC_SERVICE_ACCOUNT_JSON") or not prop:
         print("GSC credentials not configured — skipping fetch (cold-start mode).")
         return
-    cfg = load_config()
-    prop = os.environ["GSC_PROPERTY"]
     svc = service()
 
     # GSC data lags ~2-3 days.
