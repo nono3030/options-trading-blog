@@ -1,4 +1,4 @@
-# Options & Volatilité : blog SEO en pilote automatique
+# Le Cahier des Investisseurs : blog SEO en pilote automatique
 
 Blog statique en français sur le trading d'options, hébergé sur GitHub Pages.
 Chaque jour, un workflow GitHub Actions :
@@ -25,8 +25,8 @@ SEO technique inclus : URLs propres, balise canonical, Open Graph, JSON-LD (`Blo
 |---|---|---|
 | Secret | `ANTHROPIC_API_KEY` | clé API Anthropic |
 | Secret | `GSC_SERVICE_ACCOUNT_JSON` | contenu JSON de la clé du compte de service Google (étape 3) |
-| Variable | `SITE_URL` | `https://nono3030.github.io/options-trading-blog` (ou votre domaine) |
-| Variable | `GSC_PROPERTY` | `https://nono3030.github.io/options-trading-blog/` (ou `sc-domain:mondomaine.fr`) |
+| Variable | `SITE_URL` | `https://cahier-des-investisseurs.com` |
+| Variable | `GSC_PROPERTY` | `sc-domain:cahier-des-investisseurs.com` |
 | Variable | `GSC_VERIFICATION` | le code de la balise meta de vérification Search Console |
 
 ### 3. Google Search Console

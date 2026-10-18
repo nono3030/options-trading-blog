@@ -1,9 +1,9 @@
 site:
-  title: "Options & Volatilité"
-  tagline: "Comprendre et trader les options, sans jargon inutile"
+  title: "Le Cahier des Investisseurs"
+  tagline: "Le trading d'options expliqué, sans jargon inutile"
   description: "Guides pratiques en français sur le trading d'options : stratégies, grecques, volatilité, fiscalité et gestion du risque."
   # Remplacé par la variable SITE_URL du dépôt si elle est définie
-  url: "https://nono3030.github.io/options-trading-blog"
+  url: "https://cahier-des-investisseurs.com"
   lang: "fr"
   locale: "fr_FR"
   author: "Arnaud Lavesque"
