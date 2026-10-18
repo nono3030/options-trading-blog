@@ -109,9 +109,10 @@ def main() -> None:
         try:
             slug = write_one(target, cfg, posts, state)
         except Exception as e:
-            # API/network error: keep the keyword in the backlog for the next run.
+            # API error (credits, auth, outage): keep the keyword for the next run and stop,
+            # retrying every other keyword would fail the same way.
             print(f"[{kw}] failed: {e}", file=sys.stderr)
-            continue
+            break
         if kw in keywords["backlog"]:
             keywords["backlog"].remove(kw)
         keywords["done"].append(kw)
