@@ -74,6 +74,7 @@ Ce qui a fonctionné ou non lors de nos optimisations passées :
             print(f"[{keyword}] too close to existing post '{p['title']}', skipped")
             return None
 
+    POSTS_DIR.mkdir(parents=True, exist_ok=True)
     slug = slugify(meta.get("keyword") or keyword)
     if (POSTS_DIR / f"{slug}.md").exists():
         slug = f"{slug}-{today()}"
