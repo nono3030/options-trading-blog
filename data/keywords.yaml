@@ -1,6 +1,5 @@
 # Backlog de mots-clés. Alimenté automatiquement par Search Console et Claude.
 backlog:
-- qu'est-ce qu'une option call
 - option put explication simple
 - grecques des options delta gamma theta vega
 - covered call stratégie
@@ -33,6 +32,7 @@ backlog:
 - exercice anticipé option
 - prime d'une option calcul
 - options sur indices cac 40
-- erreurs débutant options
 done:
 - trading options débutant
+- erreurs débutant options
+- qu'est-ce qu'une option call

@@ -1,11 +1,6 @@
 {
-  "date": "2026-10-18",
+  "date": "2026-10-19",
   "new": [
-    {
-      "keyword": "trading options débutant",
-      "source": "backlog",
-      "score": 0
-    },
     {
       "keyword": "qu'est-ce qu'une option call",
       "source": "backlog",
@@ -148,6 +143,11 @@
     },
     {
       "keyword": "jade lizard stratégie",
+      "source": "backlog",
+      "score": 0
+    },
+    {
+      "keyword": "roll d'une option",
       "source": "backlog",
       "score": 0
     }
