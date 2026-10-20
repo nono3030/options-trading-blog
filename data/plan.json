@@ -1,11 +1,6 @@
 {
-  "date": "2026-10-19",
+  "date": "2026-10-20",
   "new": [
-    {
-      "keyword": "qu'est-ce qu'une option call",
-      "source": "backlog",
-      "score": 0
-    },
     {
       "keyword": "option put explication simple",
       "source": "backlog",
@@ -148,6 +143,11 @@
     },
     {
       "keyword": "roll d'une option",
+      "source": "backlog",
+      "score": 0
+    },
+    {
+      "keyword": "exercice anticipé option",
       "source": "backlog",
       "score": 0
     }

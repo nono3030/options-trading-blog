@@ -9,6 +9,11 @@
       "keyword": "qu'est-ce qu'une option call",
       "source": "backlog",
       "date": "2026-10-19"
+    },
+    "option-put-explication-simple": {
+      "keyword": "option put explication simple",
+      "source": "backlog",
+      "date": "2026-10-20"
     }
   },
   "refreshes": [],
