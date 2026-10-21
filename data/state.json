@@ -14,6 +14,11 @@
       "keyword": "option put explication simple",
       "source": "backlog",
       "date": "2026-10-20"
+    },
+    "grecques-des-options-delta-gamma-theta-vega": {
+      "keyword": "grecques des options delta gamma theta vega",
+      "source": "backlog",
+      "date": "2026-10-21"
     }
   },
   "refreshes": [],

@@ -1,11 +1,6 @@
 {
-  "date": "2026-10-20",
+  "date": "2026-10-21",
   "new": [
-    {
-      "keyword": "option put explication simple",
-      "source": "backlog",
-      "score": 0
-    },
     {
       "keyword": "grecques des options delta gamma theta vega",
       "source": "backlog",
@@ -148,6 +143,11 @@
     },
     {
       "keyword": "exercice anticipé option",
+      "source": "backlog",
+      "score": 0
+    },
+    {
+      "keyword": "options sur indices cac 40",
       "source": "backlog",
       "score": 0
     }
