@@ -1,11 +1,6 @@
 {
-  "date": "2026-10-21",
+  "date": "2026-10-22",
   "new": [
-    {
-      "keyword": "grecques des options delta gamma theta vega",
-      "source": "backlog",
-      "score": 0
-    },
     {
       "keyword": "covered call stratégie",
       "source": "backlog",
