@@ -24,6 +24,11 @@
       "keyword": "covered call stratégie",
       "source": "backlog",
       "date": "2026-11-03"
+    },
+    "cash-secured-put": {
+      "keyword": "cash secured put",
+      "source": "backlog",
+      "date": "2026-11-04"
     }
   },
   "refreshes": [],
