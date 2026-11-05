@@ -1,11 +1,6 @@
 {
-  "date": "2026-11-04",
+  "date": "2026-11-05",
   "new": [
-    {
-      "keyword": "cash secured put",
-      "source": "backlog",
-      "score": 0
-    },
     {
       "keyword": "wheel strategy options",
       "source": "backlog",
